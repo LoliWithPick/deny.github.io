@@ -10,7 +10,7 @@
     
     
     
-    <title>404 | 德尼个人空间</title>
+    <title>快速排序 | 德尼个人空间</title>
     <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
     <link href="”https://github.com/LoliWithPick/deny.github.io“" rel="”prefetch”">
 
@@ -175,10 +175,84 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <!-- 搜索页面(尽可能接近ZanBlog搜索功能) -->
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="loliwithpick.github.io/deny.github.io">德尼个人空间</a>
+        >
+        <span>快速排序</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/deny.github.io/2019/03/11/quickSort/">快速排序</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/deny.github.io/tags/数据结构与算法/">数据结构与算法</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-03-11
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-eye"></i>
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/deny.github.io/2019/03/11/quickSort/">快速排序</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-03-11
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/deny.github.io/tags/数据结构与算法/">数据结构与算法</a>
+                
+                
+                
+                <i class="fa fa-eye"></i>
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <p>快速排序（Quick Sort）是一种常见的时间复杂度为 O(nlogn) 的排序算法（有些人会把空间复杂度写为 O(logn）)。</p>
+<p>它通过一趟排序将数据分成两个独立的部分，其中，一部分的数据均比另一部分的数据要小，然后分别对这两部分数据继续进行排序，重复多次，以达到整个序列有序。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 快速排序</span><br><span class="line"> * @param args</span><br><span class="line"> * @param left</span><br><span class="line"> * @param right</span><br><span class="line"> * return int[]</span><br><span class="line"> */</span><br><span class="line">public int[] quickSort(int[] args, int left, int right) &#123;</span><br><span class="line">  if (left &lt; right) &#123;</span><br><span class="line">    int pivot = partition(args, left, right);</span><br><span class="line">    quickSort(args, left, pivot - 1);</span><br><span class="line">    quickSort(args, pivot + 1, right);</span><br><span class="line">  &#125;</span><br><span class="line">  return args;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> *</span><br><span class="line"> * @param args</span><br><span class="line"> * @param left</span><br><span class="line"> * @param right</span><br><span class="line"> * @return int</span><br><span class="line"> */</span><br><span class="line">private int partition(int[] args, int left, int right) &#123;</span><br><span class="line">    int pivot = right, index = left;</span><br><span class="line">    for (int i = left; i &lt; right; i++) &#123;</span><br><span class="line">      if (args[i] &lt; args[pivot]) &#123;</span><br><span class="line">        swap(args, i, index);</span><br><span class="line">      index++;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  swap(args, index, pivot);</span><br><span class="line">  return index;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 交换数据</span><br><span class="line"> * @param args</span><br><span class="line"> * @param i</span><br><span class="line"> * @param j</span><br><span class="line"> */</span><br><span class="line">private void swap(int[] args, int i, int j) &#123;</span><br><span class="line">  int tmp = args[i];</span><br><span class="line">  args[i] = args[j];</span><br><span class="line">  args[j] = tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>以上均为本人学习时的笔录总结，若有错误之处，请多多指教。</p>
+</blockquote>
 
-<!-- 404 自定义页面 -->
-<!-- 有其他想自定义的page在这里添加判断条件, 并且写好对应的模板渲染文件 -->
+    </div>
+</article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = '快速排序'
+    }
+</script>
 
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
@@ -343,17 +417,17 @@
 
                 
                 <li>
-                    <a href="/deny.github.io/404/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/deny.github.io/2019/03/11/quickSort/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/deny.github.io/404/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/deny.github.io/2019/03/11/quickSort/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/deny.github.io/404/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/deny.github.io/2019/03/11/quickSort/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -361,11 +435,11 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/deny.github.io/tags/数据结构与算法/" style="font-size: 11.782348059008445px;" class="tag-cloud-link">数据结构与算法</a>
+    <a href="/deny.github.io/tags/数据结构与算法/" style="font-size: 17.612102411057137px;" class="tag-cloud-link">数据结构与算法</a>
     
-    <a href="/deny.github.io/tags/编程语言/" style="font-size: 19.260238677690367px;" class="tag-cloud-link">编程语言</a>
+    <a href="/deny.github.io/tags/编程语言/" style="font-size: 14.733528649848639px;" class="tag-cloud-link">编程语言</a>
     
-    <a href="/deny.github.io/tags/日常吐槽/" style="font-size: 15.420688188316332px;" class="tag-cloud-link">日常吐槽</a>
+    <a href="/deny.github.io/tags/日常吐槽/" style="font-size: 10.59497579251608px;" class="tag-cloud-link">日常吐槽</a>
     
 </div>
                 
@@ -479,7 +553,7 @@
 <script src="https://myau.moe/js/comment/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
-      window.commentConfig.id = 'Sun Mar 10 2019 15:07:23 GMT+0800'
+      window.commentConfig.id = 'Mon Mar 11 2019 15:59:02 GMT+0800'
       window.commentConfig.owner = 'LoliWithPick'
       window.commentConfig.repo = 'comment'
       window.commentConfig.client_id = '1d66e37f90a881f72dee'
@@ -487,7 +561,7 @@
       window.commentConfig.redirect_uri = ''
     } else {
       window.commentConfig = {
-      	id: 'Sun Mar 10 2019 15:07:23 GMT+0800',
+      	id: 'Mon Mar 11 2019 15:59:02 GMT+0800',
         owner: 'LoliWithPick',
         repo: 'comment',
         client_id: '1d66e37f90a881f72dee',
