@@ -10,7 +10,7 @@
     
     
     
-    <title>tags: 编程语言 | 德尼个人空间</title>
+    <title>堆和堆排序 | 德尼个人空间</title>
     <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
     <link href="”https://github.com/LoliWithPick/deny.github.io“" rel="”prefetch”">
 
@@ -179,19 +179,38 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-tag">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
-        <a href="https://github.com/LoliWithPick/deny.github.io">德尼个人空间</a>
+        <a href="https://loliwithpick.github.io/deny.github.io">德尼个人空间</a>
         >
-        <span>标签</span>
+        <span>堆和堆排序</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/deny.github.io/tags/编程语言/index.html">编程语言</a>
+                <a href="/deny.github.io/2019/03/13/heapTheory/">堆和堆排序</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/deny.github.io/tags/数据结构与算法/">数据结构与算法</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-03-13
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-eye"></i>
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -199,21 +218,68 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/deny.github.io/tags/编程语言/index.html">编程语言</a>
+                    <a href="/deny.github.io/2019/03/13/heapTheory/">堆和堆排序</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-03-13
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/deny.github.io/tags/数据结构与算法/">数据结构与算法</a>
+                
+                
+                
+                <i class="fa fa-eye"></i>
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-            <a href="/deny.github.io/2019/03/10/对Java的理解/">Java基础：对Java的理解</a>
-            <br>
-            
-            
-        </div>
+    <div class="content-article">
+        <h1 id="堆（Heap）"><a href="#堆（Heap）" class="headerlink" title="堆（Heap）"></a>堆（Heap）</h1><h2 id="什么是堆"><a href="#什么是堆" class="headerlink" title="什么是堆"></a>什么是堆</h2><p>堆是一种特殊的树，它必须满足以下两点要求：</p>
+<ol>
+<li>堆是一个完全二叉树。</li>
+<li>堆中每一个节点的值都必须大于等于（或小于等于）其子树中每个节点的值。</li>
+</ol>
+<p>每个节点的值都大于等于其子树中每个节点的值的数，叫左<strong>“大顶堆”</strong>。每个节点的值都小于等于其子树中每个节点的值的数，叫左<strong>“小顶堆”</strong>。</p>
+<h2 id="如何实现堆"><a href="#如何实现堆" class="headerlink" title="如何实现堆"></a>如何实现堆</h2><h3 id="如何存储堆"><a href="#如何存储堆" class="headerlink" title="如何存储堆"></a>如何存储堆</h3><p>用数组储存完全二叉树是非常节省空间的。因为我们不需要存储左右子节点的指针，只要用数组下标，就可以找到一个节点的左右子节点和父节点。</p>
+<h3 id="堆支持哪些操作"><a href="#堆支持哪些操作" class="headerlink" title="堆支持哪些操作"></a>堆支持哪些操作</h3><p>堆主要的操作有：插入元素和取出堆顶元素。</p>
+<h4 id="插入元素"><a href="#插入元素" class="headerlink" title="插入元素"></a>插入元素</h4><p>往堆中插入一个元素后，我们需要继续满足堆的特性。如果我们直接把新插入的元素放在堆尾，它就不符合堆的特性了。所以，我们要进行调整，重新满足堆的特性，这一过程叫左<strong>“堆化”</strong>。</p>
+<p>而堆化非常简单，就是顺着节点所在路径往上或往下进行对比和交换。堆化有两种方式，一是<strong>“从上往下堆化”</strong>，二是<strong>“从下往上堆化”</strong>。</p>
+<h5 id="“从下往上堆化”"><a href="#“从下往上堆化”" class="headerlink" title="“从下往上堆化”"></a>“从下往上堆化”</h5><p>以小顶堆为例，我们让新插入的节点与其父节点进行对比，如果不满足子节点都小于等于父节点的关系，就把它们两个互换。一直重复这个过程，直到父子节点之间满足关系。</p>
+<h5 id="“从上往下堆化”"><a href="#“从上往下堆化”" class="headerlink" title="“从上往下堆化”"></a>“从上往下堆化”</h5><p>同样以小顶堆为例，<strong>“从上往下堆化”</strong>通常发生在取出栈顶元素之后，我们拿出堆顶元素后，将最后一个元素放到堆顶，然后让该元素与其左右子节点进行对比，如果不满足子节点都小于等于父节点的关系，就把它与不符合要求的子节点交换。一直重复这个过程，直到父子节点之间满足关系。</p>
+<p>由于每次我们都是对数组的最后一个元素进行操作，而且堆化进行的都是交换操作，所以不会出现数组”空洞”。</p>
+<h1 id="堆排序（HeapSort）"><a href="#堆排序（HeapSort）" class="headerlink" title="堆排序（HeapSort）"></a>堆排序（HeapSort）</h1><p>堆排序是基于堆实现的排序算法，它是一种原地排序算法，时间复杂度为 O(nlogn)，由于涉及到数据交换，所以它是不稳定的。</p>
+<h2 id="如何实现堆排序"><a href="#如何实现堆排序" class="headerlink" title="如何实现堆排序"></a>如何实现堆排序</h2><p>堆排序主要有两个操作：建堆和排序。</p>
+<h3 id="建堆"><a href="#建堆" class="headerlink" title="建堆"></a>建堆</h3><p>建堆有两种方法：</p>
+<ol>
+<li>借助在堆中插入一个元素的思想。假设数组中的数据存放在下标从 1 到 n 内，堆中只包含一个数据（下标为 1 的数据）。然后调用堆的插入方法，依次把剩下的数据插入到堆中。该方法是从下往上堆化的。</li>
+<li>我们直接对数组进行堆化，而这种操作是从上往下堆化的。我们首先从最后一个非叶子节点开始，分别跟其左右子节点比较和堆化，依次往前。这么说法会很难理解，我们直接从代码方面下手。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 以现有数组构建小頂堆</span><br><span class="line"> * @param args</span><br><span class="line"> */</span><br><span class="line">public void BuildMinHeap(int args[]) &#123;</span><br><span class="line">  len = args.length;</span><br><span class="line">  for (int i = len / 2; i &gt;= 0; i--) &#123;</span><br><span class="line">    heapifly(args, i);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 从上往下堆化</span><br><span class="line"> * @param args</span><br><span class="line"> * @param index</span><br><span class="line"> */</span><br><span class="line">public void heapifly(int args[], int index) &#123;</span><br><span class="line">  while(true) &#123;</span><br><span class="line">    int left = index * 2;</span><br><span class="line">    int right = index * 2 + 1;</span><br><span class="line">    int max = index;</span><br><span class="line"></span><br><span class="line">    if (left &lt; len &amp;&amp; args[left] &gt; args[index]) &#123;</span><br><span class="line">      max = left;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (right &lt; len &amp;&amp; args[right] &gt; args[max]) &#123;</span><br><span class="line">      max = right;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (max == index) break;</span><br><span class="line"></span><br><span class="line">    swap(args, max, index);</span><br><span class="line">    index = max;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在完全二叉树中，下标为 n/2 + 1 到 n 的节点是叶子节点。所以我们从下标为 n/2 开始，依次往前进行堆化的。所以我们只需从下标为 n/2 开始，依次往前进行堆化。</p>
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><p>假设我们建的是大顶堆，那么建堆后，数组中的数据是按照大顶堆特性进行的。堆顶元素是最大的元素，我们将它与最后一个元素进行交换，那么最大的元素就放在下标为 n 的位置，然后我们将堆长度减一，重复进行前面的操作，最终就得到一个升序排序的数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 进行排序</span><br><span class="line"> * @param args</span><br><span class="line"> */</span><br><span class="line">public void sort(int args[]) &#123;</span><br><span class="line">  //判断数组是否有效或需要排序</span><br><span class="line">  if (args == null || args.length &lt; 1)</span><br><span class="line">    return;</span><br><span class="line">  BuildMinHeap(args);</span><br><span class="line">  for (int i = args.length - 1; i &gt;= 0; i--) &#123;</span><br><span class="line">    swap(args, 0, i);</span><br><span class="line">    len--;</span><br><span class="line">    heapifly(args, 0);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>关于堆和堆排序的具体代码实现，请观看：</p>
+<blockquote>
+<p>以上均为个人学习时的笔录总结，若有错误之处，请多多指教。</p>
+</blockquote>
+
     </div>
 </article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = '堆和堆排序'
+    }
+</script>
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -425,17 +491,17 @@
 
                 
                 <li>
-                    <a href="/deny.github.io/tags/编程语言/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/deny.github.io/2019/03/13/heapTheory/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/deny.github.io/tags/编程语言/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/deny.github.io/2019/03/13/heapTheory/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/deny.github.io/tags/编程语言/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/deny.github.io/2019/03/13/heapTheory/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -443,13 +509,13 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/deny.github.io/tags/数据结构与算法/" style="font-size: 10.981336054690782px;" class="tag-cloud-link">数据结构与算法</a>
+    <a href="/deny.github.io/tags/数据结构与算法/" style="font-size: 12.855746839507189px;" class="tag-cloud-link">数据结构与算法</a>
     
-    <a href="/deny.github.io/tags/编程语言/" style="font-size: 12.61990864149184px;" class="tag-cloud-link">编程语言</a>
+    <a href="/deny.github.io/tags/编程语言/" style="font-size: 12.870876600886076px;" class="tag-cloud-link">编程语言</a>
     
-    <a href="/deny.github.io/tags/编程错误/" style="font-size: 12.660412862118147px;" class="tag-cloud-link">编程错误</a>
+    <a href="/deny.github.io/tags/编程错误/" style="font-size: 15.648420054119274px;" class="tag-cloud-link">编程错误</a>
     
-    <a href="/deny.github.io/tags/日常吐槽/" style="font-size: 8.904665025429704px;" class="tag-cloud-link">日常吐槽</a>
+    <a href="/deny.github.io/tags/日常吐槽/" style="font-size: 11.753914099491556px;" class="tag-cloud-link">日常吐槽</a>
     
 </div>
                 
@@ -563,7 +629,7 @@
 <script src="https://myau.moe/js/comment/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
-      window.commentConfig.id = ''
+      window.commentConfig.id = 'Wed Mar 13 2019 10:36:09 GMT+0800'
       window.commentConfig.owner = 'LoliWithPick'
       window.commentConfig.repo = 'comment'
       window.commentConfig.client_id = '1d66e37f90a881f72dee'
@@ -571,7 +637,7 @@
       window.commentConfig.redirect_uri = ''
     } else {
       window.commentConfig = {
-      	id: '',
+      	id: 'Wed Mar 13 2019 10:36:09 GMT+0800',
         owner: 'LoliWithPick',
         repo: 'comment',
         client_id: '1d66e37f90a881f72dee',

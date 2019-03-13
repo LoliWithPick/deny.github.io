@@ -10,7 +10,7 @@
     
     
     
-    <title>tags: 编程语言 | 德尼个人空间</title>
+    <title>堆排序 | 德尼个人空间</title>
     <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
     <link href="”https://github.com/LoliWithPick/deny.github.io“" rel="”prefetch”">
 
@@ -179,19 +179,31 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-tag">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
-        <a href="https://github.com/LoliWithPick/deny.github.io">德尼个人空间</a>
+        <a href="https://loliwithpick.github.io/deny.github.io">德尼个人空间</a>
         >
-        <span>标签</span>
+        <span>堆排序</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/deny.github.io/tags/编程语言/index.html">编程语言</a>
+                <a href="/deny.github.io/2019/03/13/heapSort/">堆排序</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2019-03-13
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-eye"></i>
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -199,21 +211,39 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/deny.github.io/tags/编程语言/index.html">编程语言</a>
+                    <a href="/deny.github.io/2019/03/13/heapSort/">堆排序</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2019-03-13
+            </p>
+            <p>
+                
+                
+                <i class="fa fa-eye"></i>
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-            <a href="/deny.github.io/2019/03/10/对Java的理解/">Java基础：对Java的理解</a>
-            <br>
-            
-            
-        </div>
+    <div class="content-article">
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">class HeapSort &#123;</span><br><span class="line">  //因多个方法都会用到数据长度，故设置为成员变量</span><br><span class="line">  int len;</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line">   * 进行排序</span><br><span class="line">   * @param args</span><br><span class="line">   */</span><br><span class="line">  public void sort(int args[]) &#123;</span><br><span class="line">    //判断数组是否有效或需要排序</span><br><span class="line">    if (args == null || args.length &lt; 1)</span><br><span class="line">      return;</span><br><span class="line">    BuildMinHeap(args);</span><br><span class="line">    for (int i = args.length - 1; i &gt;= 0; i--) &#123;</span><br><span class="line">      swap(args, 0, i);</span><br><span class="line">      len--;</span><br><span class="line">      heapifly(args, 0);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line">   * 以现有数组构建小頂堆</span><br><span class="line">   * @param args</span><br><span class="line">   */</span><br><span class="line">  public void BuildMinHeap(int args[]) &#123;</span><br><span class="line">    len = args.length;</span><br><span class="line">    for (int i = len / 2; i &gt;= 0; i--) &#123;</span><br><span class="line">      heapifly(args, i);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line">   * 从上往下堆化</span><br><span class="line">   * @param args</span><br><span class="line">   * @param index</span><br><span class="line">   */</span><br><span class="line">  public void heapifly(int args[], int index) &#123;</span><br><span class="line">    while(true) &#123;</span><br><span class="line">      int left = index * 2;</span><br><span class="line">      int right = index * 2 + 1;</span><br><span class="line">      int max = index;</span><br><span class="line"></span><br><span class="line">      if (left &lt; len &amp;&amp; args[left] &gt; args[index]) &#123;</span><br><span class="line">        max = left;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      if (right &lt; len &amp;&amp; args[right] &gt; args[max]) &#123;</span><br><span class="line">        max = right;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      if (max == index) break;</span><br><span class="line"></span><br><span class="line">      swap(args, max, index);</span><br><span class="line">      index = max;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line">   * 交换数据</span><br><span class="line">   * @param args</span><br><span class="line">   * @param i</span><br><span class="line">   * @param j</span><br><span class="line">   */</span><br><span class="line">  public void swap(int args[], int i, int j) &#123;</span><br><span class="line">    int tmp = args[i];</span><br><span class="line">    args[i] = args[j];</span><br><span class="line">    args[j] = tmp;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>以上均为本人学习时的笔录总结，若有错误之处，请多多指教。</p>
+</blockquote>
+
     </div>
 </article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = '堆排序'
+    }
+</script>
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -425,17 +455,17 @@
 
                 
                 <li>
-                    <a href="/deny.github.io/tags/编程语言/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/deny.github.io/2019/03/13/heapSort/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/deny.github.io/tags/编程语言/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/deny.github.io/2019/03/13/heapSort/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/deny.github.io/tags/编程语言/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/deny.github.io/2019/03/13/heapSort/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -443,13 +473,13 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/deny.github.io/tags/数据结构与算法/" style="font-size: 10.981336054690782px;" class="tag-cloud-link">数据结构与算法</a>
+    <a href="/deny.github.io/tags/数据结构与算法/" style="font-size: 14.16246954313674px;" class="tag-cloud-link">数据结构与算法</a>
     
-    <a href="/deny.github.io/tags/编程语言/" style="font-size: 12.61990864149184px;" class="tag-cloud-link">编程语言</a>
+    <a href="/deny.github.io/tags/编程语言/" style="font-size: 16.982275199167546px;" class="tag-cloud-link">编程语言</a>
     
-    <a href="/deny.github.io/tags/编程错误/" style="font-size: 12.660412862118147px;" class="tag-cloud-link">编程错误</a>
+    <a href="/deny.github.io/tags/编程错误/" style="font-size: 13.932500221364855px;" class="tag-cloud-link">编程错误</a>
     
-    <a href="/deny.github.io/tags/日常吐槽/" style="font-size: 8.904665025429704px;" class="tag-cloud-link">日常吐槽</a>
+    <a href="/deny.github.io/tags/日常吐槽/" style="font-size: 16.542183329116327px;" class="tag-cloud-link">日常吐槽</a>
     
 </div>
                 
@@ -563,7 +593,7 @@
 <script src="https://myau.moe/js/comment/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
-      window.commentConfig.id = ''
+      window.commentConfig.id = 'Wed Mar 13 2019 15:21:54 GMT+0800'
       window.commentConfig.owner = 'LoliWithPick'
       window.commentConfig.repo = 'comment'
       window.commentConfig.client_id = '1d66e37f90a881f72dee'
@@ -571,7 +601,7 @@
       window.commentConfig.redirect_uri = ''
     } else {
       window.commentConfig = {
-      	id: '',
+      	id: 'Wed Mar 13 2019 15:21:54 GMT+0800',
         owner: 'LoliWithPick',
         repo: 'comment',
         client_id: '1d66e37f90a881f72dee',
