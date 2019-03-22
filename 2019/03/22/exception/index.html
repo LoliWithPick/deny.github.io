@@ -201,32 +201,32 @@
     </div>
     <div class="content-article">
         <p>Java 的所有异常继承于 java.lang.Throwable 类，而该类有两个重要的子类，分别是 Exception 类和 Error 类。它们是异常处理机制的重要组成部分。异常的划分体现了设计者对不同异常的分类。</p>
-<p><img src="https://github.com/LoliWithPick/deny.github.io/blob/gh-pages/imgs/views/throwable1.png" alt></p>
+<p><img src="/deny.github.io/imgs/views/throwable1.png" alt></p>
 <h1 id="Exception"><a href="#Exception" class="headerlink" title="Exception"></a>Exception</h1><p>Exception 是程序正常运行时，可能并且应捕获进行相应处理的。一般情况下分为两种，分别是检查性异常和运行时异常。</p>
 <h2 id="检查性异常（Checked-Exception）"><a href="#检查性异常（Checked-Exception）" class="headerlink" title="检查性异常（Checked Exception）"></a>检查性异常（Checked Exception）</h2><p>检查性异常（Checked Exception）一般是由程序员或问题引起的，它必须在代码中显式地捕获并进行相应处理。比如，要打开一个不存在的文件会在编译期产生异常。</p>
 <h3 id="检查性异常的种类"><a href="#检查性异常的种类" class="headerlink" title="检查性异常的种类"></a>检查性异常的种类</h3><table>
 <thead>
 <tr>
 <th style="text-align:center">名称</th>
-<th style="text-align:center"></th>
+<th style="text-align:center">-</th>
 <th style="text-align:center">简介</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:center">ClassNotFoundException</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">-</td>
 <td style="text-align:center">类未找到异常</td>
 </tr>
 <tr>
 <td style="text-align:center">CloneNotSupportedException</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">-</td>
 <td style="text-align:center">克隆不支持异常</td>
 </tr>
 </tbody>
 </table>
 <h2 id="运行时异常（Runtime-Exception）"><a href="#运行时异常（Runtime-Exception）" class="headerlink" title="运行时异常（Runtime Exception）"></a>运行时异常（Runtime Exception）</h2><p>运行时异常（Runtime Exception）是程序运行时由解释器产生的异常，由于运行时异常在随处都可出现，并且出现频率高，所以编译器不会对它进行检查。在代码中不必显式地补货，而是根据需要去捕获它。比如，数组下标访问越界。</p>
-<h3 id="运行时异常的种类"><a href="#运行时异常的种类" class="headerlink" title="运行时异常的种类"></a>运行时异常的种类</h3><p>图</p>
+<h3 id="运行时异常的种类"><a href="#运行时异常的种类" class="headerlink" title="运行时异常的种类"></a>运行时异常的种类</h3><p>ArrithmeticException<br>MissingResourceException<br>ClassNotFoundException<br>NullPointerException<br>IllegalArgumentException<br>ArrayIndexOutOfBoundsException<br>UnkownTypeExcepetion</p>
 <h1 id="Error"><a href="#Error" class="headerlink" title="Error"></a>Error</h1><p>Error 是程序无法处理的错误，是不可查的，一般发生于 JVM 本身或 JVM 运行程序时。因为错误是超出程序控制和处理能力之外的，所以，一个合理的程序，即便发生了错误，我们也不应该尝试去处理错误（注解：这里可能会有误解，这里说的处理不是说我们不解决错误，而是不要捕获和处理错误。）。比如，JVM 运行出错。</p>
 <h3 id="错误的种类"><a href="#错误的种类" class="headerlink" title="错误的种类"></a>错误的种类</h3><p>图</p>
 <h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><h2 id="异常处理原则"><a href="#异常处理原则" class="headerlink" title="异常处理原则"></a>异常处理原则</h2><ol>
@@ -421,19 +421,19 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/deny.github.io/2019/03/11/bubbleSort/">冒泡排序</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/deny.github.io/2019/03/22/exception/">Java异常处理</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/deny.github.io/2019/03/11/hello-world/">Hello World</a>
+                    <a href="/deny.github.io/2019/03/13/heap/">堆的代码实现</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/deny.github.io/2019/03/13/heapTheory/">堆和堆排序</a>
                 </span>
             </li>
             
@@ -445,19 +445,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/deny.github.io/2019/03/12/jdbcError/">解决SSM框架&#34;Could not get JDBC Connection&#34;问题</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
                     <a href="/deny.github.io/2019/03/15/linkedList/">链表的各种基本操作</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/deny.github.io/2019/03/11/quickSort/">快速排序</a>
+                    <a href="/deny.github.io/2019/03/11/bubbleSort/">冒泡排序</a>
                 </span>
             </li>
             
@@ -469,7 +463,13 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/deny.github.io/2019/03/13/heapTheory/">堆和堆排序</a>
+                    <a href="/deny.github.io/2019/03/12/jdbcError/">解决SSM框架&#34;Could not get JDBC Connection&#34;问题</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/deny.github.io/2019/03/11/quickSort/">快速排序</a>
                 </span>
             </li>
             
@@ -508,13 +508,13 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/deny.github.io/tags/数据结构与算法/" style="font-size: 9.467172703885542px;" class="tag-cloud-link">数据结构与算法</a>
+    <a href="/deny.github.io/tags/编程语言/" style="font-size: 12.464777320971894px;" class="tag-cloud-link">编程语言</a>
     
-    <a href="/deny.github.io/tags/编程语言/" style="font-size: 16.667974644575793px;" class="tag-cloud-link">编程语言</a>
+    <a href="/deny.github.io/tags/数据结构与算法/" style="font-size: 9.365264524546427px;" class="tag-cloud-link">数据结构与算法</a>
     
-    <a href="/deny.github.io/tags/编程错误/" style="font-size: 13.268251455456335px;" class="tag-cloud-link">编程错误</a>
+    <a href="/deny.github.io/tags/编程错误/" style="font-size: 11.284953160936801px;" class="tag-cloud-link">编程错误</a>
     
-    <a href="/deny.github.io/tags/日常吐槽/" style="font-size: 8.837886924768737px;" class="tag-cloud-link">日常吐槽</a>
+    <a href="/deny.github.io/tags/日常吐槽/" style="font-size: 14.36181977659329px;" class="tag-cloud-link">日常吐槽</a>
     
 </div>
                 
